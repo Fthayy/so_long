@@ -17,36 +17,19 @@
     eger uygunsa mapi olustur
     Map olustuktan sonra hareketlere gec
 */
-char	*read_file(char *str,t_map *map)
-{
-	char	*line;
-	char	*res;
-	int		fd;
-    int x;
-    x = -1;
-    fd = open()
-}
 
-t_map	*read_map(char *mapstr)
-{
-	t_map	*ret;
-	char	*map;
-
-	ret = ft_calloc(1, sizeof(t_map));
-}
 
 void	open_window(t_all *all, char *mapstr)
 {
 	int	x;
 	int	y;
 
-	all->map = read_map(mapstr);
+	all = read_map(mapstr);
 }
 
 int	main(int argc, char **argv)
 {
 	t_all	*all;
-
 	if (argc == 2)
 	{
 		check_xpm();

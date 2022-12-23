@@ -24,6 +24,11 @@ typedef struct s_map
 typedef struct s_all
 {
     t_map   *map;
+	int collect;
 }		t_all;
+
+t_all	*read_map(char *mapstr);
+void	check_path(char *str);
+void	check_xpm(void);
 
 #endif

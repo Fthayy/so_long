@@ -11,18 +11,18 @@
 /* ************************************************************************** */
 #include <libft.h>
 
-char	*ft_strchr(const char *s, int c)
+char	*ft_strchr(const char *str, int c)
 {
 	unsigned char	f;
 
 	f = c;
-	while (*s)
+	while (*str)
 	{
-		if (*s == f)
-			return ((char *)s);
-		s++;
+		if (*str == f)
+			return ((char *)str);
+		str++;
 	}
 	if (c == '\0')
-		return ((char *)s);
+		return ((char *)str);
 	return (0);
 }

@@ -10,32 +10,32 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
+#include "libft.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*ft_strjoin(char *left_str, char *buff)
 {
-	int		x;
-	int		y;
-	char	*s3;
+	size_t	i;
+	size_t	j;
+	char	*str;
 
-	x = 0;
-	y = 0;
-	s3 = malloc((ft_strlen(s1) + ft_strlen(s2)) * sizeof(char) + 1);
-	if (!s3)
-		return (0);
-	while (s1[x] != '\0')
+	if (!left_str)
 	{
-		s3[x] = s1[x];
-		x++;
+		left_str = (char *)malloc(1 * sizeof(char));
+		left_str[0] = '\0';
 	}
-	while (s2[y] != '\0')
-	{
-		s3[x] = s2[y];
-		y++;
-		x++;
-	}
-	s3[x] = '\0';
-	free(s1);
-	free(s2);
-	return (s3);
+	if (!left_str || !buff)
+		return (NULL);
+	str = malloc(sizeof(char) * ((ft_strlen(left_str) + ft_strlen(buff)) + 1));
+	if (str == NULL)
+		return (NULL);
+	i = -1;
+	j = 0;
+	if (left_str)
+		while (left_str[++i] != '\0')
+			str[i] = left_str[i];
+	while (buff[j] != '\0')
+		str[i++] = buff[j++];
+	str[ft_strlen(left_str) + ft_strlen(buff)] = '\0';
+	free(left_str);
+	return (str);
 }

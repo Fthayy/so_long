@@ -27,5 +27,7 @@ char	*get_next_line(int fd);
 char	*ft_getscript(int fd, char *left_str);
 char	*get_line(char *left_str);
 char	*last_get_script(char *left_str);
-
+char	*ft_get_strjoin(char *left_str, char *buff);
+size_t	ft_get_strlen(char *s);
+char	*ft_get_strchr(char *s, int c);
 #endif

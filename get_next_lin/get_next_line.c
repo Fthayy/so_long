@@ -14,6 +14,7 @@
 #include <fcntl.h>
 #include <stdio.h>
 #include <unistd.h>
+#include "../libf/libft.h"
 
 char	*get_line(char *script)
 {
@@ -57,7 +58,7 @@ char	*last_get_script(char *script)
 		free(script);
 		return (0);
 	}
-	str = malloc(ft_strlen(script) * sizeof(char) - i + 1);
+	str = malloc(ft_get_strlen(script) * sizeof(char) - i + 1);
 	if (!str)
 		return (0);
 	j = 0;
@@ -78,7 +79,7 @@ char	*get_script(int fd, char *script)
 	if (!buff)
 		return (0);
 	byte = 1;
-	while (!ft_strchr(script, '\n') && byte != 0)
+	while (!ft_get_strchr(script, '\n') && byte != 0)
 	{
 		byte = read(fd, buff, BUFFER_SIZE);
 		if (byte == -1)
@@ -87,7 +88,7 @@ char	*get_script(int fd, char *script)
 			return (0);
 		}
 		buff[byte] = '\0';
-		script = ft_strjoin(script, buff);
+		script = ft_get_strjoin(script, buff);
 	}
 	free(buff);
 	return (script);
@@ -97,7 +98,6 @@ char	*get_next_line(int fd)
 {
 	char		*line;
 	static char	*script;
-
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (0);
 	script = get_script(fd, script);
