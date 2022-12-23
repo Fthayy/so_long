@@ -22,7 +22,7 @@ char	*read_file(char *str, t_all *all)
 			if (line[x] == 'C')
 				all->collect += 1;
 		}
-		ft_strjoin(res, line);
+		res = ft_strjoin(res, line);
 		x = -1;
 		free(line);
 	}
@@ -36,6 +36,9 @@ t_all	*read_map(char *mapstr)
 	char	*map;
 	all = ft_calloc(1, sizeof(t_all));
 	map = read_file(mapstr, all);
-	printf("%d",all->collect);
+	all->map_layer = ft_split(map,'\n');
+	map_char_checker(map,all);
+	map_size_checker(all);
+	edge_check(all);
 	return (all);
-}
+ }
